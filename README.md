@@ -1,84 +1,89 @@
-# Web Scraping with LLMs and LangChain
+# Web Scraper with AI Summaries
 
-A sophisticated web scraper that uses LangChain and OpenAI's GPT models to intelligently summarize web content. Built with FastAPI, PostgreSQL, and Docker.
+A web scraper that extracts content from websites and creates concise summaries using AI. Built with modern tools for reliability and speed.
 
-## Features
+## What It Does
 
-- Asynchronous web scraping with rate limiting
-- Intelligent content processing using LangChain and OpenAI
-- Structured data storage in PostgreSQL
-- RESTful API endpoints with FastAPI
-- Containerized deployment with Docker
-- Real-time scraping status updates
-- Beautiful web interface
+- Scrapes web pages quickly and efficiently
+- Creates clear summaries of web content
+- Stores everything in a database for easy access
+- Shows real-time progress of scraping jobs
+- Works with any website
+- Clean, modern web interface
 
-## Tech Stack
+## Built With
 
-- **Backend**: FastAPI, Python 3.11
-- **Database**: PostgreSQL
-- **AI/ML**: LangChain, OpenAI GPT-3.5
-- **Containerization**: Docker
-- **Web Scraping**: BeautifulSoup4, aiohttp
+- FastAPI - Fast web framework
+- PostgreSQL - Reliable database
+- LangChain & GPT-3.5 - For smart summaries
+- Docker - Easy deployment
+- BeautifulSoup4 - Web scraping
+- aiohttp - Fast async requests
 
-## Prerequisites
+## Getting Started
+
+### What You Need
 
 - Docker and Docker Compose
 - OpenAI API key
-- PostgreSQL (if running locally)
+- PostgreSQL (optional for local development)
 
-## Setup
+### Quick Start
 
-1. Clone the repository:
+1. Get the code:
 ```bash
 git clone <your-repo-url>
 cd <repo-name>
 ```
 
-2. Create a `.env` file:
+2. Set up your environment:
 ```bash
+# Create .env file with:
 OPENAI_API_KEY=your_openai_api_key
 DATABASE_URL=postgresql://postgres:postgres@db:5432/webscraper
 ```
 
-3. Build and run with Docker:
+3. Run it:
 ```bash
 docker-compose up --build
 ```
 
-4. Access the application:
-- Web Interface: http://localhost:8000
-- API Documentation: http://localhost:8000/docs
+4. Open in your browser:
+- Main app: http://localhost:8000
+- API docs: http://localhost:8000/docs
 
-## API Endpoints
+## How to Use
 
-- `POST /api/scrape`: Start a new scraping job
-- `GET /api/jobs/{job_id}`: Get job status
-- `GET /api/content`: Query scraped content
+### API Endpoints
 
-## Database Schema
+- `POST /api/scrape` - Start scraping a website
+- `GET /api/jobs/{job_id}` - Check scraping progress
+- `GET /api/content` - Get scraped content
 
-### ScrapedContent
-- `id`: Primary key
-- `url`: URL of scraped content
-- `title`: Page title
-- `text`: Full text content
-- `summary`: AI-generated summary
-- `extra_metadata`: Additional metadata
-- `created_at`: Creation timestamp
-- `updated_at`: Last update timestamp
+### Database Structure
 
-### ScrapingJob
-- `id`: Primary key
-- `status`: Job status (pending/running/completed/failed)
-- `urls`: List of URLs to scrape
-- `results`: Scraping results
-- `error`: Error message (if any)
-- `created_at`: Creation timestamp
-- `updated_at`: Last update timestamp
+#### ScrapedContent
+- `id` - Unique identifier
+- `url` - Website address
+- `title` - Page title
+- `text` - Full content
+- `summary` - AI summary
+- `extra_metadata` - Additional info
+- `created_at` - When it was scraped
+- `updated_at` - Last update time
 
-## Development
+#### ScrapingJob
+- `id` - Job identifier
+- `status` - Current status
+- `urls` - Websites to scrape
+- `results` - Scraping results
+- `error` - Any errors
+- `created_at` - Start time
+- `updated_at` - Last update
 
-1. Install dependencies:
+## For Developers
+
+1. Install requirements:
 ```bash
 pip install -r requirements.txt
 ```
@@ -88,19 +93,17 @@ pip install -r requirements.txt
 pytest
 ```
 
-3. Format code:
+3. Format your code:
 ```bash
 black .
 isort .
 ```
 
-## Contributing
+## Want to Help?
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+1. Fork the repo
+2. Make your changes
+3. Send a pull request
 
 ## License
 
